@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @favor.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @favor.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_favor_path(@favor) %> |
+<%= link_to 'Back', favors_path %>

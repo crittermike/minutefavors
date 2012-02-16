@@ -1,0 +1,13 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each favors}}
+    {{view App.ShowFavorView favorBinding="this"}}
+  {{/each}}
+  </tbody>
+</table>

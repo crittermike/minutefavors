@@ -1,25 +1,11 @@
 <h1>Listing favors</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<script type="text/x-handlebars">
+  {{ view App.ListFavorsView }}
+</script>
 
-<% @favors.each do |favor| %>
-  <tr>
-    <td><%= favor.title %></td>
-    <td><%= favor.description %></td>
-    <td><%= link_to 'Show', favor %></td>
-    <td><%= link_to 'Edit', edit_favor_path(favor) %></td>
-    <td><%= link_to 'Destroy', favor, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Favor', new_favor_path %>
+<script type="text/javascript">
+  $(function() {
+    App.favorsController.loadAll(<%= @favors.to_json.html_safe %>);
+  });
+</script>

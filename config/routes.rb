@@ -1,4 +1,6 @@
 Favors::Application.routes.draw do
+  devise_for :users
+
   resources :favors
 
   # The priority is based upon order of creation:

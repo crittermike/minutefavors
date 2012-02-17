@@ -28,7 +28,16 @@
     </div>
   </div>
   <div class="container">
+
+    <% if notice %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
+
   </div>
 
 </body>

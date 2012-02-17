@@ -1,8 +1,10 @@
-<div class="hero-unit">
-  <h1>Help and be helped!</h1>
-  <p>Minute Favors is an online community of people doing quick, online favors for each other. Ask for something quick and easy that can be done using a computer, and you shall receive.</p>
-  <p><a href="favors/new" class="btn btn-primary btn-large">Request a favor »</a></p>
-</div> 
+<% if not user_signed_in? %>
+  <div class="hero-unit">
+    <h1>Help and be helped!</h1>
+    <p>Minute Favors is an online community of people doing quick, online favors for each other. Ask for something quick and easy that can be done using a computer, and you shall receive.</p>
+    <p><a href="favors/new" class="btn btn-primary btn-large">Request a favor »</a></p>
+  </div> 
+<% end %>
 
 <div class="row">
 

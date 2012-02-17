@@ -1,25 +1,44 @@
 <%= form_for(@favor) do |f| %>
-  <% if @favor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@favor.errors.count, "error") %> prohibited this favor from being saved:</h2>
+  <div class="form-horizontal">
+    <fieldset>
+      <legend>Post a new favor request</legend>
+      <% if @favor.errors.any? %>
+        <div class="alert alert-error">
+          <p><strong><%= pluralize(@favor.errors.count, "error") %> prohibited this favor from being saved:</strong></p>
 
-      <ul>
-      <% @favor.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <ul>
+          <% @favor.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+      <div class="control-group">
+        <label for="title">Title:</label>
+        <div class="controls">
+          <%= f.text_field :title, :class => 'input-xlarge' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label for="description">Description:</label>
+        <div class="controls">
+          <%= f.text_area :description, :class => 'input-xlarge' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label for="points">Points:</label>
+        <div class="controls">
+          <%= f.text_field :points, :class => 'input-xlarge' %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save new favor</button>
+        <a href="/" class="btn">Cancel</a>
+      </div>
+    </fieldset>
   </div>
 <% end %>

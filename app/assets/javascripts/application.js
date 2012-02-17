@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require ember
 //= require ./vendor/ember-rest
+//= require ./vendor/timeago
 //= require_tree ./lib
 //= require app/app
 //= require_tree ./app/models

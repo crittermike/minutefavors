@@ -1,13 +1,9 @@
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
+<ul id="favors-list">
   {{#each favors}}
-    {{view App.ShowFavorView favorBinding="this"}}
+    <li>
+      <span class="label label-info">{{points}} pts</span>
+      <a {{bindAttr href="url"}} title="Check out this favor">{{title}}</a>
+      <small>{{timeago}}</small>
+    </li>
   {{/each}}
-  </tbody>
-</table>
+</ul>

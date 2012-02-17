@@ -1,4 +1,5 @@
-<td>{{favor.id}}</td>
-<td class="data">
-  {{favor.title}}
-</td>
+<li>
+  <span class="label label-info">{{favor.points}} pts</span>
+  <a {{bindAttr href="favor.url"}} title="Check out this favor">{{favor.title}}</a>
+  <small>{{favor.timeago}}</small>
+</li>

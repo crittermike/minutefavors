@@ -1,12 +1,21 @@
 <div class="hero-unit">
   <h1>Help and be helped!</h1>
   <p>Minute Favors is an online community of people doing quick, online favors for each other. Ask for something quick and easy that can be done using a computer, and you shall receive.</p>
-  <p><a class="btn btn-primary btn-large">Request a favor »</a></p>
+  <p><a href="favors/new" class="btn btn-primary btn-large">Request a favor »</a></p>
 </div> 
 
-<script type="text/x-handlebars">
-  {{ view App.ListFavorsView }}
-</script>
+<div class="row">
+
+  <div class="span8">
+    <script type="text/x-handlebars">
+      {{ view App.ListFavorsView }}
+    </script>
+  </div>
+
+  <div class="span4">
+  </div>
+
+</div>
 
 <script type="text/javascript">
   $(function() {

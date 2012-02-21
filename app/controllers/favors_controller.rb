@@ -1,4 +1,7 @@
 class FavorsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+  before_filter :verify_owned_favor, :only => [:edit, :update, :destroy]
+
   # GET /favors
   # GET /favors.json
   def index
@@ -34,13 +37,13 @@ class FavorsController < ApplicationController
 
   # GET /favors/1/edit
   def edit
-    @favor = Favor.find(params[:id])
   end
 
   # POST /favors
   # POST /favors.json
   def create
     @favor = Favor.new(params[:favor])
+    @favor.user = current_user
 
     respond_to do |format|
       if @favor.save
@@ -56,8 +59,6 @@ class FavorsController < ApplicationController
   # PUT /favors/1
   # PUT /favors/1.json
   def update
-    @favor = Favor.find(params[:id])
-
     respond_to do |format|
       if @favor.update_attributes(params[:favor])
         format.html { redirect_to @favor, notice: 'Favor was successfully updated.' }
@@ -72,7 +73,6 @@ class FavorsController < ApplicationController
   # DELETE /favors/1
   # DELETE /favors/1.json
   def destroy
-    @favor = Favor.find(params[:id])
     @favor.destroy
 
     respond_to do |format|
@@ -80,4 +80,11 @@ class FavorsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  protected    
+    def verify_owned_favor
+      @favor = current_user.favors.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to favor_path(@favor), :flash => { :alert => "You can only edit posts you created." }
+    end
 end

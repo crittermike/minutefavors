@@ -1,12 +1,24 @@
-<h2>Forgot your password?</h2>
+<ul class="nav nav-pills">
+  <li><%= link_to "Log In", new_user_session_path %></li>
+  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+  <li class="active"><%= link_to "Reset Password", new_user_password_path %></li>
+</ul>
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="form-horizontal">
+    <fieldset>
+      <legend>Reset your password</legend>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+      <%= devise_error_messages! %>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
+      <div class="control-group">
+        <%= f.label :email %>
+        <div class="controls">
+          <%= f.email_field :email %>
+        </div>
+      </div>
+
+      <div class="form-actions"><%= f.submit "Send me reset password instructions", :class => "btn btn-primary" %></div>
+    </fieldset>
+  </div>
 <% end %>
-
-<%= render "links" %>

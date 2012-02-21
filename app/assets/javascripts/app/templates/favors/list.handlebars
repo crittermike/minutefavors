@@ -1,9 +1,18 @@
 <ul id="favors-list">
   {{#each favors}}
     <li>
-      <span class="label label-info">{{points}} pts</span>
-      <a {{bindAttr href="url"}} title="Check out this favor">{{title}}</a>
-      <small>{{timeago}}</small>
+      <p>
+        <span class="label label-info">{{points}} pts</span>
+        <a {{bindAttr href="url"}} title="Check out this favor">{{title}}</a>
+      </p>
+      <p class="meta">
+        <small>{{timeago}}</small>
+      </p>
+      <ul class="tags">
+        {{#each tags}}
+          {{view App.TagView tagBinding="this"}}
+        {{/each}} 
+      </ul>
     </li>
   {{/each}}
 </ul>

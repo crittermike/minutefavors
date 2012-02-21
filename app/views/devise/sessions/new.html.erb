@@ -1,7 +1,12 @@
+<ul class="nav nav-pills">
+  <li class="active"><%= link_to "Log In", new_user_session_path %></li>
+  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+  <li><%= link_to "Reset Password", new_user_password_path %></li>
+</ul>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div class="form-horizontal">
     <fieldset>
-      <legend>Sign in</legend>
+      <legend>Log in</legend>
       <div class="control-group">
         <%= f.label :email %>
         <div class="controls"><%= f.email_field :email %></div>
@@ -23,5 +28,3 @@
     </fieldset>
   </div>
 <% end %>
-
-<%= render "links" %>

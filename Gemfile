@@ -5,6 +5,7 @@ gem 'rails', '3.2.1'
 gem 'mysql2'
 gem 'ember-rails'
 gem 'devise'
+gem 'acts-as-taggable-on'
 
 # Gems used only for assets and not required
 # in production environments by default.

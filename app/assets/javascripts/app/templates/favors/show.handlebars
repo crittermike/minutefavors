@@ -1,5 +1,17 @@
-<li>
-  <span class="label label-info">{{favor.points}} pts</span>
-  <a {{bindAttr href="favor.url"}} title="Check out this favor">{{favor.title}}</a>
-  <small>{{favor.timeago}}</small>
-</li>
+{{#with favor}}
+  <div class="well favor-display">
+    <h2><span class="label label-info">{{points}} pts</span> {{title}}</h2> 
+    <ul class="tags">
+      {{#each tags}}
+        {{view App.TagView tagBinding="this"}}
+      {{/each}} 
+    </ul>
+    <p class="time">{{timeago}}</p>
+  </div> 
+  <div class="row">
+    <div class="span6">
+      {{{description}}}
+    </div>
+    <div class="span6"></div>
+  </div>
+{{/with}}

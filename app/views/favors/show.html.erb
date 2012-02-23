@@ -1,16 +1,9 @@
-<%= @favor.to_json(include: :tags) %>
-<p id="notice"><%= notice %></p>
+<script type="text/x-handlebars">
+  {{view App.ShowFavorView}}
+</script>
 
-<p>
-  <b>Title:</b>
-  <%= @favor.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @favor.description %>
-</p>
-
-
-<%= link_to 'Edit', edit_favor_path(@favor) %> |
-<%= link_to 'Back', favors_path %>
+<script type="text/javascript">
+  $(function() {
+    App.favorsController.load(<%= @favor.to_json(include: :tags).html_safe %>);
+  });
+</script>

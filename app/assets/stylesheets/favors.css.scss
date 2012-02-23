@@ -61,6 +61,23 @@ body {
       text-transform: lowercase;
     }
 
+
+.favor-display {
+  position: relative;
+}
+
+  .favor-display h2 span {
+    font-size: 20px;
+    position: relative;
+    top: -3px;
+  }
+
+  .favor-display p.time {
+    font-size: 14px;
+    color: #888;
+    margin: 12px 0 0;
+  }
+
 ul.tags {
   margin:0;
   padding:0;

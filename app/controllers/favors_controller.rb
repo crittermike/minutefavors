@@ -17,6 +17,8 @@ class FavorsController < ApplicationController
   # GET /favors/1.json
   def show
     @favor = Favor.find(params[:id])
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
+    @favor.description = markdown.render(@favor.description).html_safe
 
     respond_to do |format|
       format.html # show.html.erb

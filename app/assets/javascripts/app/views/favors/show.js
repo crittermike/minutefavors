@@ -1,4 +1,4 @@
 App.ShowFavorView = Ember.View.extend({
   templateName: 'app/templates/favors/show',
-  tagName: 'tr'
+  favorBinding: 'App.favorsController.single'
 });

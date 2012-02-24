@@ -6,9 +6,19 @@
   </div> 
 <% end %>
 
+<div class="page-header">
+  <h1>Recent favor requests</h1>
+</div>
 <div class="row">
 
   <div class="span8">
+    <script type="text/x-handlebars">
+      <ul class="nav nav-tabs">
+        <li>{{#view Ember.Button tagName="a" target="App.favorsController" action="sortNewest"}}Newest{{/view}}</li>
+        <li>{{#view Ember.Button tagName="a" target="App.favorsController" action="sortOldest"}}Oldest{{/view}}</li>
+        <li>{{#view Ember.Button tagName="a" target="App.favorsController" action="sortPoints"}}Points{{/view}}</li>
+      </ul>
+    </script>
     <script type="text/x-handlebars">
       {{view App.ListFavorsView}}
     </script>
@@ -20,6 +30,6 @@
 </div>
 <script type="text/javascript">
   $(function() {
-    App.favorsController.loadAll(<%= @favors.to_json(include: :tags).html_safe %>);
+    App.favorsController.loadAll(<%= @favors.to_json.html_safe %>);
   });
 </script>

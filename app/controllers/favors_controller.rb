@@ -5,7 +5,21 @@ class FavorsController < ApplicationController
   # GET /favors
   # GET /favors.json
   def index
-    @favors = Favor.all
+    if defined? params[:sort]
+      sort = params[:sort]
+    else
+      sort = 'newest'
+    end
+
+    if sort == 'oldest'
+      order = 'created_at ASC'
+    elsif sort == 'points'
+      order = 'points DESC'
+    else
+      order = 'created_at DESC'
+    end
+
+    @favors = Favor.all(:order => order)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,6 +37,18 @@ class FavorsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @favor }
+    end
+  end
+
+  # GET /favors/tags/tagname
+  # GET /favors/tags/tagname.json
+  def tag
+    @favors = Favor.tagged_with(params[:tag])
+    @tag = params[:tag]
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @favors }
     end
   end
 

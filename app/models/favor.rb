@@ -3,4 +3,8 @@ class Favor < ActiveRecord::Base
   validates :title, :presence => true
   validates :points, :presence => true
   belongs_to :user
+
+  def as_json(options={})
+    super(:include => :tags)
+  end
 end

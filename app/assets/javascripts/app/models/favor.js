@@ -1,5 +1,5 @@
 App.Favor = Ember.Resource.extend({
-  resourceName: 'favor',
+  resourceUrl: 'favors',
   
   url: function() {
     return "/favors/" + this.get('id');

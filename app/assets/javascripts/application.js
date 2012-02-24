@@ -15,6 +15,7 @@
 //= require ember
 //= require ./vendor/ember-rest
 //= require ./vendor/timeago
+//= require ./vendor/bootstrap-tab
 //= require_tree ./lib
 //= require app/app
 //= require_tree ./app/models

@@ -6,19 +6,39 @@
   </div> 
 <% end %>
 
-<div class="page-header">
-  <h1>Recent favor requests</h1>
-</div>
 <div class="row">
 
   <div class="span8">
     <script type="text/x-handlebars">
-      <ul class="nav nav-tabs">
-        <li>{{#view Ember.Button tagName="a" target="App.favorsController" action="sortNewest"}}Newest{{/view}}</li>
-        <li>{{#view Ember.Button tagName="a" target="App.favorsController" action="sortOldest"}}Oldest{{/view}}</li>
-        <li>{{#view Ember.Button tagName="a" target="App.favorsController" action="sortPoints"}}Points{{/view}}</li>
+      <ul class="nav nav-pills" id="sort-tabs">
+        <li class="active">
+          {{#view Ember.Button tagName="a" target="App.favorsController" attributeBindings="data-toggle" href="#newest" data-toggle="pill" action="sortNewest"}}Newest{{/view}}
+        </li>
+        <li>
+          {{#view Ember.Button tagName="a" target="App.favorsController" attributeBindings="data-toggle" href="#oldest" data-toggle="pill" action="sortOldest"}}Oldest{{/view}}
+        </li>
+        <li>
+          {{#view Ember.Button tagName="a" target="App.favorsController" attributeBindings="data-toggle" href="#points" data-toggle="pill" action="sortPoints"}}Points{{/view}}
+        </li>
       </ul>
     </script>
+    <div class="tab-content">
+      <div id="newest" class="tab-pane active">
+        <div class="page-header">
+          <h1>Recent favor requests</h1>
+        </div>
+      </div>
+      <div id="oldest" class="tab-pane">
+        <div class="page-header">
+          <h1>Oldest favor requests</h1>
+        </div>
+      </div>
+      <div id="points" class="tab-pane">
+        <div class="page-header">
+          <h1>Most valuable favor requests</h1>
+        </div>
+      </div>
+    </div>
     <script type="text/x-handlebars">
       {{view App.ListFavorsView}}
     </script>

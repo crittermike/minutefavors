@@ -10,12 +10,28 @@
   </div> 
   <div class="row">
 
-    <div class="span6">
+    <div class="span8">
       {{{description}}}
     </div>
-    <div class="span6">
+    <div class="span4">
       <div class="well">
-        <h2>Status: 
+        {{#if isOpen}}
+          <h2>This request is <span class="label label-success">{{status}}</span></h2>
+          <hr />
+          <p>Do you know how to do this? Can you do it quickly?</p>
+          {{#view Ember.Button favorBinding="this" class="btn btn-success btn-full btn-large" target="App.favorsController" action="startWork"}}Start working!{{/view}}
+        {{/if}}
+        {{#if isTakenByCurrent}}
+          <h2>This request is <span class="label label-warning">{{status}}</span></h2>
+          <hr />
+          <p>You're supposed to be working on this! Get to work!</p>
+          <p id="countdown">{{timeleft}}</p>
+        {{/if}}
+        {{#if isTakenByOther}}
+          <h2>This request is <span class="label label-warning">{{status}}</span></h2>
+          <hr />
+          <p>This request is already spoken for.</p>
+        {{/if}}
       </div>
     </div>
   </div>

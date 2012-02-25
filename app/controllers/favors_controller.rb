@@ -72,6 +72,7 @@ class FavorsController < ApplicationController
   def create
     @favor = Favor.new(params[:favor])
     @favor.user = current_user
+    @favor.status = 'open'
 
     respond_to do |format|
       if @favor.save

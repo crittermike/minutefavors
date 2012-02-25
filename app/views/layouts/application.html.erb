@@ -49,5 +49,15 @@
 
   </div>
 
+<script type="text/javascript">
+  $(function() {
+    <% if user_signed_in? %>
+      App.set('user_id', <%= current_user.id %>);
+    <% else %>
+      App.set('user_id', 0);
+    <% end %>
+  });
+</script>
+
 </body>
 </html>

@@ -2,6 +2,16 @@ body {
   padding-top: 60px;
 }
 
+h2 .label {
+  font-size: 24px;
+  padding: 1px 7px 2px 5px;
+}
+
+.btn-full {
+  width: 100%;
+  font-size: 25px;
+}
+
 .field_with_errors {
   display: inline;
 }
@@ -10,6 +20,16 @@ body {
   width: 140px;
   padding-top: 5px;
   text-align: right;
+}
+
+#countdown {
+  font-size: 80px;
+  background: black;
+  font-family: monospace;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
 }
 
 #new_favor .input-xlarge  {

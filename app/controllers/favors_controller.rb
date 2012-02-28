@@ -1,6 +1,6 @@
 class FavorsController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
-  before_filter :verify_owned_favor, :only => [:edit, :update, :destroy]
+  before_filter :verify_owned_favor, :only => [:edit, :destroy]
 
   # GET /favors
   # GET /favors.json
@@ -88,6 +88,7 @@ class FavorsController < ApplicationController
   # PUT /favors/1
   # PUT /favors/1.json
   def update
+    @favor = Favor.find(params[:id])
     respond_to do |format|
       if @favor.update_attributes(params[:favor])
         format.html { redirect_to @favor, notice: 'Favor was successfully updated.' }

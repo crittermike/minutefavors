@@ -13,12 +13,25 @@ App.Favor = Ember.Resource.extend({
     return humaneDate(this.get('created_at'));
   }.property('created_at'),
 
-  // Find the number of seconds left before this task expires.
-  timeleft: function() {
+  // The number of seconds that have passed since this favor was marked as taken.
+  timespent: function() {
     date = new Date(this.get('accepted_at')); // @TODO: Make this work in browser that don't support ISO dates yet.
-    expires = date.getTime() + (60 * 30 * 1000) // Timestamp of 30 minutes from the acceptance. 
-    return secondsToTime(Math.ceil((expires - App.get('current_time')) / 1000));
+    return Math.ceil((App.get('current_time') - date.getTime()) / 1000);
   }.property('App.current_time'),
+
+  // The number of points remaining on this favor for the current assignee.
+  pointsleft: function() {
+    var points = this.get('points') - (this.get('timespent') / 60);
+    if (points < 0) {
+      points = 0;
+    }
+    return points.toFixed(1);
+  }.property('timespent', 'points'),
+
+  // The style attribute attribute
+  progressWidth: function() {
+    return "width: " + Math.ceil(100 * (1 - (this.get('pointsleft') / this.get('points')))) + '%;';
+  }.property('pointsleft'),
 
   // Status functions, return info about the current status.
   isOpen: function() {

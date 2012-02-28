@@ -18,14 +18,25 @@
         {{#if isOpen}}
           <h2>This request is <span class="label label-success">{{status}}</span></h2>
           <hr />
-          <p>Do you know how to do this? Can you do it quickly?</p>
           {{#view Ember.Button favorBinding="this" class="btn btn-success btn-full btn-large" target="App.favorsController" action="startWork"}}Start working!{{/view}}
+          <hr />
+          
+          <p class="help-block">The number of points you get decreases by 1 point per minute until you're done, so go fast!<br /><br />If you take too long and the points reach zero, then you lose control of the favor and someone else can take it.</p>
         {{/if}}
         {{#if isTakenByCurrent}}
-          <h2>This request is <span class="label label-warning">{{status}}</span></h2>
+          <h2>You've <span class="label label-warning">{{status}}</span> this favor!</h2>
           <hr />
-          <p>You're supposed to be working on this! Get to work!</p>
-          <p id="countdown">{{timeleft}}</p>
+          <p>You're supposed to be working on this! Get to work! Remember, the longer you take, the less points you get.</p>
+          <hr />
+          
+          <p class="pointsleft">Points remaining: <span class="label">{{pointsleft}} pts</label></p><br />
+          <div class="progress progress-striped progress-danger active">
+            <div class="bar" {{bindAttr style="progressWidth"}}></div>
+          </div>
+          <p>
+            {{#view Ember.Button favorBinding="this" class="btn btn-success btn-large" target="App.favorsController" action="submitWork"}}Complete work{{/view}}
+            {{#view Ember.Button favorBinding="this" class="pull-right btn btn-large btn-danger" target="App.favorsController" action="cancelWork"}}Cancel work{{/view}}
+          </p>
         {{/if}}
         {{#if isTakenByOther}}
           <h2>This request is <span class="label label-warning">{{status}}</span></h2>

@@ -22,16 +22,13 @@ h2 .label {
   text-align: right;
 }
 
-#countdown {
-  font-size: 80px;
-  background: black;
-  font-family: monospace;
+.pointsleft {
+  font-size: 150%;
   font-weight: bold;
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
 }
-
+.pointsleft .label {
+  font-size: 110%;
+}
 #new_favor .input-xlarge  {
   width: 400px;
 }

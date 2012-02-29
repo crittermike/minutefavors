@@ -18,13 +18,26 @@
   <div class="row">
 
     <div class="span8">
-      <h2>Description</h2>
-      {{{description}}}
-
+      <blockquote>{{{description}}}</blockquote>
       {{#if isPending}}
         <hr />
-        <h3>Pending Resolution:</h3><br />
-        <blockquote>{{{resolution}}}</blockquote>
+        <div class="resolution">
+          <h3>Pending Resolution:</h3><br />
+          {{#if isOwner}}
+            <div class="btn-group">
+              <a class="btn" {{bindAttr href="approveWork"}}>Approve and award points</a>
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a {{bindAttr href="rejectWork"}} data-method="delete">Reject and re-open</a>
+                </li>
+              </ul>
+            </div>
+          {{/if}}
+          <blockquote>{{{resolution}}}</blockquote>
+        </div>
       {{/if}}
 
     </div>

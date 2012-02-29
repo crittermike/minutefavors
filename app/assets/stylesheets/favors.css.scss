@@ -17,6 +17,21 @@ blockquote p {
   right: 25px;
 }
 
+.resolution .btn-group, .resolution h3 {
+  float: left;
+}
+
+.resolution .btn-group {
+  position: relative;
+  top: -18px;
+  left: 10px;
+}
+
+.resolution blockquote {
+  clear: both;
+  margin-top: 15px;
+}
+
 .modal {
   display: none;
 }

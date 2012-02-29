@@ -48,7 +48,21 @@ class FavorsController < ApplicationController
   # GET /favors/tags/tagname
   # GET /favors/tags/tagname.json
   def tag
-    @favors = Favor.tagged_with(params[:tag])
+    if defined? params[:sort]
+      sort = params[:sort]
+    else
+      sort = 'newest'
+    end
+
+    if sort == 'oldest'
+      order = 'created_at ASC'
+    elsif sort == 'points'
+      order = 'points DESC'
+    else
+      order = 'created_at DESC'
+    end
+
+    @favors = Favor.tagged_with(params[:tag], :order => order)
     @tag = params[:tag]
 
     respond_to do |format|

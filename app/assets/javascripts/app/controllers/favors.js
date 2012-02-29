@@ -6,15 +6,15 @@ App.favorsController = Ember.ResourceController.create({
   }.property(),
 
   sortNewest: function() {
-    this.resourceUrl = '/favors?sort=newest';
+    this.resourceUrl = window.location.pathname + '?sort=newest';
     this.findAll();
   },
   sortOldest: function() {
-    this.resourceUrl = '/favors?sort=oldest';
+    this.resourceUrl = window.location.pathname + '?sort=oldest';
     this.findAll();
   },
   sortPoints: function() {
-    this.resourceUrl = '/favors?sort=points';
+    this.resourceUrl = window.location.pathname + '?sort=points';
     this.findAll();
   },
 

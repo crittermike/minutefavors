@@ -1,0 +1,28 @@
+<ul class="nav nav-pills" id="sort-tabs">
+  <li class="active">
+    {{#view Ember.Button tagName="a" target="App.favorsController" attributeBindings="data-toggle" href="#newest" data-toggle="pill" action="sortNewest"}}Newest{{/view}}
+  </li>
+  <li>
+    {{#view Ember.Button tagName="a" target="App.favorsController" attributeBindings="data-toggle" href="#oldest" data-toggle="pill" action="sortOldest"}}Oldest{{/view}}
+  </li>
+  <li>
+    {{#view Ember.Button tagName="a" target="App.favorsController" attributeBindings="data-toggle" href="#points" data-toggle="pill" action="sortPoints"}}Points{{/view}}
+  </li>
+</ul>
+<div class="tab-content">
+  <div id="newest" class="tab-pane active">
+    <div class="page-header">
+      <h2>Recent favor requests</h2>
+    </div>
+  </div>
+  <div id="oldest" class="tab-pane">
+    <div class="page-header">
+      <h2>Oldest favor requests</h2>
+    </div>
+  </div>
+  <div id="points" class="tab-pane">
+    <div class="page-header">
+      <h2>Most valuable favor requests</h2>
+    </div>
+  </div>
+</div>

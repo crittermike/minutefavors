@@ -16,6 +16,7 @@
 //= require ./vendor/ember-rest
 //= require ./vendor/timeago
 //= require ./vendor/bootstrap-tab
+//= require ./vendor/bootstrap-modal
 //= require ./vendor/date-utils
 //= require ./vendor/countdown
 //= require_tree ./lib

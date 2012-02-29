@@ -23,6 +23,7 @@
           
           <p class="help-block">The number of points you get decreases by 1 point per minute until you're done, so go fast!<br /><br />If you take too long and the points reach zero, then you lose control of the favor and someone else can take it.</p>
         {{/if}}
+
         {{#if isTakenByCurrent}}
           <h2>You've <span class="label label-warning">{{status}}</span> this favor!</h2>
           <hr />
@@ -34,16 +35,38 @@
             <div class="bar" {{bindAttr style="progressWidth"}}></div>
           </div>
           <p>
-            {{#view Ember.Button favorBinding="this" class="btn btn-success btn-large" target="App.favorsController" action="submitWork"}}Complete work{{/view}}
+            <a class="btn btn-success btn-large" data-toggle="modal" href="#resolution-modal">Submit work</a>
             {{#view Ember.Button favorBinding="this" class="pull-right btn btn-large btn-danger" target="App.favorsController" action="cancelWork"}}Cancel work{{/view}}
           </p>
         {{/if}}
+
         {{#if isTakenByOther}}
           <h2>This request is <span class="label label-warning">{{status}}</span></h2>
           <hr />
           <p>This request is already spoken for.</p>
         {{/if}}
+
+        {{#if isPending}}
+          <h2>This request is <span class="label label-warning">{{status}}</span></h2>
+          <hr />
+          <p>This favor has been completed and submitted for approval. If it gets rejected, it will be reopened for someone else to work on it.</p>
+        {{/if}}
+
       </div>
+    </div>
+  </div>
+
+  <div class="modal" id="resolution-modal">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">×</a>
+      <h3>Submit a resolution for this favor</h3>
+    </div>
+    <div class="modal-body">
+      <textarea placeholder="Enter any necessary information or proof that you resolved this favor request here." id="favor-resolution" name="favor-resolution"></textarea>
+    </div>
+    <div class="modal-footer">
+      {{#view Ember.Button favorBinding="this" class="btn btn-success" target="App.favorsController" action="submitWork"}}Submit{{/view}}
+      <a href="#" data-dismiss="modal" class="btn">Cancel</a>
     </div>
   </div>
 {{/with}}

@@ -1,7 +1,7 @@
 App.Favor = Ember.Resource.extend({
   resourceName: 'favor',
   resourceUrl: '/favors',
-  resourceProperties: ['id', 'title', 'description', 'created_at', 'updated_at', 'points', 'user_id', 'status', 'helper_id', 'accepted_at'],
+  resourceProperties: ['id', 'title', 'description', 'created_at', 'updated_at', 'points', 'user_id', 'status', 'helper_id', 'accepted_at', 'resolution'],
   
   // The URL of the individual favor.
   url: function() {
@@ -42,6 +42,9 @@ App.Favor = Ember.Resource.extend({
   }.property('status'),
   isTakenByCurrent: function() {
     return this.get('status') == 'taken' && this.get('helper_id') == App.get('user_id');
+  }.property('status'),
+  isPending: function() {
+    return this.get('status') == 'pending'; 
   }.property('status'),
   isClosed: function() {
     return this.get('status') == 'closed'; 

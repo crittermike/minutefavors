@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229143907) do
+ActiveRecord::Schema.define(:version => 20120229145242) do
 
   create_table "favors", :force => true do |t|
     t.string   "title"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20120229143907) do
     t.string   "status"
     t.integer  "helper_id"
     t.datetime "accepted_at"
+    t.text     "resolution"
   end
 
   create_table "taggings", :force => true do |t|

@@ -3,6 +3,6 @@ App.TagView = Em.View.extend({
   tagName: "li",
   url: function() {
     var tag = this.get('tag');
-    return 'favors/tag/' + tag.name;
+    return '/favors/tag/' + tag.name;
   }.property()
 });

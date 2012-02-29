@@ -7,6 +7,15 @@ h2 .label {
   padding: 1px 7px 2px 5px;
 }
 
+.modal {
+  display: none;
+}
+
+.modal textarea {
+  width: 98%;
+  height: 200px;
+}
+
 .btn-full {
   width: 100%;
   font-size: 25px;

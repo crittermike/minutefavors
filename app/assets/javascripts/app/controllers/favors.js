@@ -49,5 +49,20 @@ App.favorsController = Ember.ResourceController.create({
       })
       .done(function() {
       });
+  },
+
+  submitWork: function() {
+    var favor = this.get('single');
+
+    favor.set('status', 'pending');
+    favor.set('resolution', $('#favor-resolution').val());
+    $('#resolution-modal').modal('hide');
+
+    favor.saveResource()
+      .fail(function(e) {
+        alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
+      })
+      .done(function() {
+      });
   }
 });

@@ -32,7 +32,12 @@ class FavorsController < ApplicationController
   def show
     @favor = Favor.find(params[:id])
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
-    @favor.description = markdown.render(@favor.description).html_safe
+    unless @favor.description.nil? 
+      @favor.description = markdown.render(@favor.description).html_safe
+    end
+    unless @favor.resolution.nil? 
+      @favor.resolution = markdown.render(@favor.resolution).html_safe
+    end
 
     respond_to do |format|
       format.html # show.html.erb

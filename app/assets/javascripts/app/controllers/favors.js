@@ -56,6 +56,7 @@ App.favorsController = Ember.ResourceController.create({
 
     favor.set('status', 'pending');
     favor.set('resolution', $('#favor-resolution').val());
+    favor.set('earned', Math.ceil(favor.get('pointsleft')));
     $('#resolution-modal').modal('hide');
 
     favor.saveResource()
@@ -63,6 +64,7 @@ App.favorsController = Ember.ResourceController.create({
         alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
       })
       .done(function() {
+        window.location.reload(false); // Reload the page to fetch the Markdown-ified resolution.
       });
   }
 });

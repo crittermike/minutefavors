@@ -17,6 +17,7 @@
 //= require ./vendor/timeago
 //= require ./vendor/bootstrap-tab
 //= require ./vendor/bootstrap-modal
+//= require ./vendor/bootstrap-dropdown
 //= require ./vendor/date-utils
 //= require ./vendor/countdown
 //= require_tree ./lib

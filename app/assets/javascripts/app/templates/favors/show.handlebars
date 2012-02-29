@@ -7,11 +7,30 @@
       {{/each}} 
     </ul>
     <p class="time">{{timeago}}</p>
+    {{#if isOwner}}
+      <div class="btn-group">
+        <a class="btn" href="#">Edit</a>
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#">Delete</a>
+          </li>
+        </ul>
+      </div>
+    {{/if}}
   </div> 
   <div class="row">
 
     <div class="span8">
+      <h2>Description</h2>
       {{{description}}}
+      {{#if isPending}}
+        <hr />
+        <h3>Pending Resolution:</h3><br />
+        <blockquote>{{{resolution}}}</blockquote>
+      {{/if}}
     </div>
     <div class="span4">
       <div class="well">

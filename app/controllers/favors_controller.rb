@@ -1,25 +1,12 @@
 class FavorsController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
   before_filter :verify_owned_favor, :only => [:edit, :destroy]
+  before_filter :add_sorting, :only => [:index, :tag]
 
   # GET /favors
   # GET /favors.json
   def index
-    if defined? params[:sort]
-      sort = params[:sort]
-    else
-      sort = 'newest'
-    end
-
-    if sort == 'oldest'
-      order = 'created_at ASC'
-    elsif sort == 'points'
-      order = 'points DESC'
-    else
-      order = 'created_at DESC'
-    end
-
-    @favors = Favor.all(:order => order)
+    @favors = Favor.all(:order => @order)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -48,21 +35,7 @@ class FavorsController < ApplicationController
   # GET /favors/tags/tagname
   # GET /favors/tags/tagname.json
   def tag
-    if defined? params[:sort]
-      sort = params[:sort]
-    else
-      sort = 'newest'
-    end
-
-    if sort == 'oldest'
-      order = 'created_at ASC'
-    elsif sort == 'points'
-      order = 'points DESC'
-    else
-      order = 'created_at DESC'
-    end
-
-    @favors = Favor.tagged_with(params[:tag], :order => order)
+    @favors = Favor.tagged_with(params[:tag], :order => @order)
     @tag = params[:tag]
 
     respond_to do |format|
@@ -95,6 +68,9 @@ class FavorsController < ApplicationController
 
     respond_to do |format|
       if @favor.save
+        # Decrement the points from the current user's points total.
+        current_user.points = current_user.points - @favor.points
+        current_user.save
         format.html { redirect_to @favor, notice: 'Favor was successfully created.' }
         format.json { render json: @favor, status: :created, location: @favor }
       else
@@ -110,6 +86,12 @@ class FavorsController < ApplicationController
     @favor = Favor.find(params[:id])
     respond_to do |format|
       if @favor.update_attributes(params[:favor])
+        if defined? params[:favor]['is_accepted'] and params[:favor]['is_accepted']
+          # If the owner just accepted this favor, credit the helper with the points.
+          @user = User.find(@favor.helper_id)
+          @user.points = @user.points + @favor.earned
+          @user.save
+        end
         format.html { redirect_to @favor, notice: 'Favor was successfully updated.' }
         format.json { head :no_content }
       else
@@ -135,5 +117,22 @@ class FavorsController < ApplicationController
       @favor = current_user.favors.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to favor_path(@favor), :flash => { :alert => "You can only edit posts you created." }
+    end
+
+  protected
+    def add_sorting
+      if defined? params[:sort]
+        sort = params[:sort]
+      else
+        sort = 'newest'
+      end
+
+      if sort == 'oldest'
+        @order = 'created_at ASC'
+      elsif sort == 'points'
+        @order = 'points DESC'
+      else
+        @order = 'created_at DESC'
+      end
     end
 end

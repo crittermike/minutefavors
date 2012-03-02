@@ -37,11 +37,8 @@ App.Favor = Ember.Resource.extend({
   isOpen: function() {
     return this.get('status') == 'open';
   }.property('status'),
-  isTakenByOther: function() {
-    return this.get('status') == 'taken' && this.get('helper_id') != App.get('user_id'); 
-  }.property('status'),
-  isTakenByCurrent: function() {
-    return this.get('status') == 'taken' && this.get('helper_id') == App.get('user_id');
+  isTaken: function() {
+    return this.get('status') == 'taken'; 
   }.property('status'),
   isPending: function() {
     return this.get('status') == 'pending'; 
@@ -49,6 +46,9 @@ App.Favor = Ember.Resource.extend({
   isClosed: function() {
     return this.get('status') == 'closed'; 
   }.property('status'),
+  isHelper: function() {
+    return this.get('helper_id') == App.get('user_id');
+  }.property('helper_id'),
   isOwner: function() {
     return this.get('user_id') == App.get('user_id');
   }.property()

@@ -19,26 +19,21 @@
 
     <div class="span8">
       <blockquote>{{{description}}}</blockquote>
-      {{#if isPending}}
-        <hr />
-        <div class="resolution">
-          <h3>Pending Resolution:</h3><br />
-          {{#if isOwner}}
-            <div class="btn-group">
-              <a class="btn" {{bindAttr href="approveWork"}}>Approve and award points</a>
-              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a {{bindAttr href="rejectWork"}} data-method="delete">Reject and re-open</a>
-                </li>
-              </ul>
-            </div>
-          {{/if}}
-          <blockquote>{{{resolution}}}</blockquote>
-        </div>
-      {{/if}}
+
+      {{#unless isOpen}}
+        {{#unless isTaken}}
+          <hr />
+          <div class="resolution">
+            <h3>Resolution:</h3><br />
+            {{#if isOwner}}
+              {{#if isPending}}
+                {{view App.FavorModerateView favorBinding="this"}}
+              {{/if}}
+            {{/if}}
+            <blockquote>{{{resolution}}}</blockquote>
+          </div>
+        {{/unless}}
+      {{/unless}}
 
     </div>
 

@@ -66,5 +66,37 @@ App.favorsController = Ember.ResourceController.create({
       .done(function() {
         window.location.reload(false); // Reload the page to fetch the Markdown-ified resolution.
       });
+  },
+
+  approveWork: function() {
+    var favor = this.get('single');
+
+    favor.set('status', 'closed');
+    favor.set('is_accepted', 'true');
+
+    favor.saveResource()
+      .fail(function(e) {
+        alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
+      })
+      .done(function() {
+      });
+    
+  },
+
+  rejectWork: function() {
+    var favor = this.get('single');
+
+    favor.set('status', 'open');
+    favor.set('helper_id', 0);
+    favor.set('resolution', '');
+    favor.set('earned', 0);
+
+    favor.saveResource()
+      .fail(function(e) {
+        alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
+      })
+      .done(function() {
+      });
   }
+
 });

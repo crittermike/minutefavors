@@ -1,5 +1,14 @@
 App.FavorWorkView = Em.View.extend({
   templateName: "app/templates/favors/work",
-  classNames: ["well"]
+  classNames: ["well"],
+  startWork: function() {
+    this.get('favor').startWork();
+  },
+  cancelWork: function() {
+    this.get('favor').cancelWork();
+  },
+  submitWork: function() {
+    this.get('favor').submitWork();
+  }
 });
 

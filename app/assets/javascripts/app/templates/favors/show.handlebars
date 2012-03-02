@@ -43,17 +43,4 @@
 
   </div>
 
-  <div class="modal" id="resolution-modal">
-    <div class="modal-header">
-      <a class="close" data-dismiss="modal">×</a>
-      <h3>Submit a resolution for this favor</h3>
-    </div>
-    <div class="modal-body">
-      <textarea placeholder="Enter any necessary information or proof that you resolved this favor request here." id="favor-resolution" name="favor-resolution"></textarea>
-    </div>
-    <div class="modal-footer">
-      {{#view Ember.Button favorBinding="this" class="btn btn-success" target="App.favorsController" action="submitWork"}}Submit{{/view}}
-      <a href="#" data-dismiss="modal" class="btn">Cancel</a>
-    </div>
-  </div>
 {{/with}}

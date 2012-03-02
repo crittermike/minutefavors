@@ -86,7 +86,7 @@ class FavorsController < ApplicationController
     @favor = Favor.find(params[:id])
     respond_to do |format|
       if @favor.update_attributes(params[:favor])
-        if defined? params[:favor]['is_accepted'] and params[:favor]['is_accepted']
+        if defined? params[:favor]['is_accepted']
           # If the owner just accepted this favor, credit the helper with the points.
           @user = User.find(@favor.helper_id)
           @user.points = @user.points + @favor.earned

@@ -51,5 +51,60 @@ App.Favor = Ember.Resource.extend({
   }.property('helper_id'),
   isOwner: function() {
     return this.get('user_id') == App.get('user_id');
-  }.property()
+  }.property(),
+
+
+  startWork: function() {
+    if (this.get('helper_id') == App.get('user_id')) {
+      alert("You can't restart a favor you already canceled, you points-hogging sly guy you.")
+    } else {
+      this.set('status', 'taken');
+      this.set('helper_id', App.get('user_id'));
+      this.set('accepted_at', ISODateString(new Date()));
+
+      this.saveResource().fail(function(e) {
+        alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
+      });
+    }
+  },
+
+  cancelWork: function() {
+    this.set('status', 'open');
+    this.saveResource().fail(function(e) {
+      alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
+    });
+  },
+
+  submitWork: function() {
+    this.set('status', 'pending');
+    this.set('resolution', $('#favor-resolution').val());
+    this.set('earned', Math.ceil(this.get('pointsleft')));
+    $('#resolution-modal').modal('hide');
+
+    this.saveResource().fail(function(e) {
+      alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
+    }).done(function() {
+      window.location.reload(false); // Reload the page to fetch the Markdown-ified resolution.
+    });
+  },
+
+  approveWork: function() {
+    this.set('status', 'closed');
+    this.set('is_accepted', 'true');
+
+    this.saveResource().fail(function(e) {
+      alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
+    });
+  },
+
+  rejectWork: function() {
+    this.set('status', 'open');
+    this.set('helper_id', 0);
+    this.set('resolution', '');
+    this.set('earned', 0);
+
+    this.saveResource().fail(function(e) {
+      alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
+    });
+  }
 });

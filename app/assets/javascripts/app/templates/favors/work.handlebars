@@ -6,7 +6,7 @@
     {{#if isOwner}}
       <p class="help-block">No one has started working on this request of yours yet. When they do, this box will say "TAKEN" instead of "OPEN".</p>
     {{else}}
-      {{#view Ember.Button favorBinding="this" class="btn btn-success btn-full btn-large" target="App.favorsController" action="startWork"}}Start working!{{/view}}
+      {{#view Ember.Button favorBinding="this" class="btn btn-success btn-full btn-large" target="parentView" action="startWork"}}Start working!{{/view}}
       <hr />
       <p class="help-block">The number of points you get decreases by 1 point per minute until you're done, so go fast!<br /><br />If you take too long and the points reach zero, then you lose control of the favor and someone else can take it.</p>
     {{/if}}
@@ -27,7 +27,7 @@
       </div>
       <p>
         <a class="btn btn-success btn-large" data-toggle="modal" href="#resolution-modal">Submit work</a>
-        {{#view Ember.Button favorBinding="this" class="pull-right btn btn-large btn-danger" target="App.favorsController" action="cancelWork"}}Cancel work{{/view}}
+        {{#view Ember.Button favorBinding="this" class="pull-right btn btn-large btn-danger" target="parentView" action="cancelWork"}}Cancel work{{/view}}
       </p>
 
     {{else}}
@@ -53,5 +53,19 @@
     <hr />
     <p>This favor has been completed and accepted already.</p>
   {{/if}}
+
+  <div class="modal" id="resolution-modal">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">×</a>
+      <h3>Submit a resolution for this favor</h3>
+    </div>
+    <div class="modal-body">
+      <textarea placeholder="Enter any necessary information or proof that you resolved this favor request here." id="favor-resolution" name="favor-resolution"></textarea>
+    </div>
+    <div class="modal-footer">
+      {{#view Ember.Button favorBinding="this" class="btn btn-success" target="parentView" action="submitWork"}}Submit{{/view}}
+      <a href="#" data-dismiss="modal" class="btn">Cancel</a>
+    </div>
+  </div>
 
 {{/with}}

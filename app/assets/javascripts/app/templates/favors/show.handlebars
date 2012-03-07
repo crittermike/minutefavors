@@ -18,7 +18,7 @@
   <div class="row">
 
     <div class="span8">
-      <blockquote>{{{description}}}</blockquote>
+      <blockquote>{{{description_markdown}}}</blockquote>
 
       {{#unless isOpen}}
         {{#unless isTaken}}
@@ -30,7 +30,7 @@
                 {{view App.FavorModerateView favorBinding="this"}}
               {{/if}}
             {{/if}}
-            <blockquote>{{{resolution}}}</blockquote>
+            <blockquote>{{{resolution_markdown}}}</blockquote>
           </div>
         {{/unless}}
       {{/unless}}

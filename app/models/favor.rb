@@ -6,7 +6,25 @@ class Favor < ActiveRecord::Base
   before_save :sanitize_html
 
   def as_json(options={})
-    super(:include => :tags)
+    super(:include => :tags, :methods => [:description_markdown, :resolution_markdown])
+  end
+
+  def description_markdown
+    if description
+      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true, :fenced_code_blocks => true, :lax_html_blocks => true)
+      return markdown.render(description).html_safe
+    else
+      return ''
+    end
+  end
+
+  def resolution_markdown
+    if resolution
+      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true, :fenced_code_blocks => true, :lax_html_blocks => true)
+      return markdown.render(resolution).html_safe
+    else
+      return ''
+    end
   end
 
   include ActionView::Helpers::SanitizeHelper  

@@ -19,7 +19,7 @@
 //= require ./vendor/bootstrap-modal
 //= require ./vendor/bootstrap-dropdown
 //= require ./vendor/date-utils
-//= require ./vendor/countdown
+//= require ./vendor/textext
 //= require_tree ./lib
 //= require app/app
 //= require_tree ./app/models

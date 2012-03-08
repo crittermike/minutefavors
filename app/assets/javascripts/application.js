@@ -18,6 +18,7 @@
 //= require ./vendor/bootstrap-tab
 //= require ./vendor/bootstrap-modal
 //= require ./vendor/bootstrap-dropdown
+//= require ./vendor/bootstrap-collapse
 //= require ./vendor/date-utils
 //= require ./vendor/textext
 //= require_tree ./lib

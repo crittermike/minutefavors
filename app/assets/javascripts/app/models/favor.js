@@ -1,7 +1,7 @@
 App.Favor = Ember.Resource.extend({
   resourceName: 'favor',
   resourceUrl: '/favors',
-  resourceProperties: ['id', 'title', 'description', 'created_at', 'updated_at', 'points', 'user_id', 'status', 'helper_id', 'accepted_at', 'resolution', 'earned'],
+  resourceProperties: ['id', 'title', 'description', 'created_at', 'updated_at', 'points', 'user_id', 'status', 'helper_id', 'accepted_at', 'resolution', 'earned', 'is_accepted'],
   
   // The URL of the individual favor.
   url: function() {
@@ -90,8 +90,6 @@ App.Favor = Ember.Resource.extend({
 
   approveWork: function() {
     this.set('status', 'closed');
-    this.set('is_accepted', 'true');
-
     this.saveResource().fail(function(e) {
       alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
     });

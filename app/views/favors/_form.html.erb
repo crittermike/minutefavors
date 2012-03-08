@@ -18,6 +18,7 @@
         <%= f.label :title %>
         <div class="controls">
           <%= f.text_field :title, :class => 'input-xlarge' %>
+          <p class="help-block">Enter a descriptive but short title for this request.</p>
         </div>
       </div>
 
@@ -25,6 +26,7 @@
         <%= f.label :description %>
         <div class="controls">
           <%= f.text_area :description, :class => 'input-xlarge', :rows => 10 %>
+          <p class="help-block">Be sure to include any information that a helper might possibly need, or else your task won't be completed.</p>
         </div>
       </div>
 
@@ -32,6 +34,7 @@
         <%= f.label :points %>
         <div class="controls">
           <%= f.text_field :points, :class => 'input-xlarge' %>
+          <p class="help-block">These points will immediately be deducted from your account, and whoever finishes your favor first gets them.</p>
         </div>
       </div>
 
@@ -39,11 +42,12 @@
         <%= f.label :tag_list %>
         <div class="controls">
           <%= f.text_field :tag_list, :class => 'input-xlarge' %>
+          <p class="help-block">Enter a list of up to 5 tags, separated by commas.</p>
         </div>
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Save favor</button>
+        <button type="submit" class="btn btn-success">Save favor</button>
         <a href="/" class="btn">Cancel</a>
       </div>
     </fieldset>

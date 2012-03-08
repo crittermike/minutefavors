@@ -229,7 +229,22 @@ blockquote p {
 
 .modal {
   display: none;
+  background: #22252A;
 }
+  .modal .modal-header {
+    border-bottom: 1px solid #444;
+    background-color: #30343A;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+  .modal .modal-footer {
+    background-color: #30343A;
+    border-top: 1px solid #444;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
 
   .modal textarea {
     width: 98%;
@@ -257,6 +272,9 @@ blockquote p {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#'4ecdc4, endColorstr='#'47bcb2, GradientType=0);
   border-color: #47bcb2;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-primary .caret, .btn-success .caret {
+  border-top-color: black;
 }
 .btn-primary:hover,
 .btn-primary:active,
@@ -289,8 +307,8 @@ blockquote p {
 .btn-danger.active,
 .btn-danger.disabled,
 .btn-danger[disabled] {
-  background-color: #e85151}
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #e85151;
+}
 .btn-danger:active, .btn-danger.active {
   background-color: #942a25 \9;
 }
@@ -317,6 +335,7 @@ blockquote p {
 .btn-success[disabled] {
   background-color: #b3db57;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  color: black;
 }
 .btn-success:active, .btn-success.active {
   background-color: #408140 \9;
@@ -334,10 +353,6 @@ blockquote p {
   width: 140px;
   padding-top: 5px;
   text-align: right;
-}
-
-#new_favor .input-xlarge  {
-  width: 400px;
 }
 
 #error_explanation {

@@ -15,7 +15,9 @@
       </div>
 
       {{#if isOwner}}
-        {{view App.AdminControlsView favorBinding="this"}}
+        {{#unless isClosed}}
+          {{view App.AdminControlsView favorBinding="this"}}
+        {{/unless}}
       {{/if}}
 
     </div> 
@@ -45,7 +47,13 @@
         </div>
 
         <div class="span4">
-          {{view App.FavorWorkView favorBinding="this"}}
+          {{#if App.user_id}}
+            {{view App.FavorWorkView favorBinding="this"}}
+          {{else}}
+            <h2>Log in or sign up to help</h2>
+            <hr />
+            <p>If you want to help out with this task, you have to <a href="/users/sign_in">log in</a> or <a href="/users/sign_up">sign up</a> first. It only takes a few seconds!</p>
+          {{/if}}
         </div>
 
       </div>

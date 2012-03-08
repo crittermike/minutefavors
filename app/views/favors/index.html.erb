@@ -1,23 +1,22 @@
-<% if not user_signed_in? %>
-  <div class="hero-unit">
-    <h1>Help and be helped!</h1>
-    <p>Minute Favors is an online community of people doing quick, online favors for each other. Ask for something quick and easy that can be done using a computer, and you shall receive.</p>
-    <p><a href="favors/new" class="btn btn-primary btn-large">Request a favor »</a></p>
-  </div> 
-<% end %>
+<div class="container">
+  <% if user_signed_in? %>
+    <h1 class="title">View open favor requests</h1>
+  <% else %>
+    <div class="hero-unit">
+      <h1>Help and be helped with <span class="logo">Minute <span>Favors</span></span></h1>
+      <p>Minute Favors is an online community of people doing quick, online favors for each other. Ask for something quick and easy that can be done using a computer, and you shall receive.</p>
+      <p><a href="favors/new" class="btn btn-primary btn-large">Request a favor »</a></p>
+    </div> 
+  <% end %>
+</div>
 
-<div class="row">
-
-  <div class="span8">
+<div class="callout">
+  <div class="container">
     <script type="text/x-handlebars">
       {{view App.SortFavorsView}}
       {{view App.ListFavorsView}}
     </script>
   </div>
-
-  <div class="span4">
-  </div>
-
 </div>
 <script type="text/javascript">
   $(function() {

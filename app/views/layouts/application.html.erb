@@ -4,11 +4,13 @@
   <title>Minute Favors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar navbar-fixed-top">
+  <div class="navbar">
     <div class="navbar-inner">
       <div class="container">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -16,7 +18,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="/">Minute Favors</a>
+        <a class="brand logo" href="/">Minute <span>Favors<span></a>
         <div class="nav-collapse">
           <ul class="nav">
             <li><a href="/">Favors List</a></li>
@@ -37,17 +39,15 @@
     </div>
   </div>
   <div class="container">
-
     <% if notice %>
       <p class="alert alert-info"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
-
-    <%= yield %>
-
   </div>
+
+  <%= yield %>
 
 <script type="text/javascript">
   $(function() {

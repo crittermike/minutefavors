@@ -1,6 +1,5 @@
 App.FavorWorkView = Em.View.extend({
   templateName: "app/templates/favors/work",
-  classNames: ["well"],
   startWork: function() {
     this.get('favor').startWork();
   },

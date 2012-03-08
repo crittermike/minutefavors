@@ -1,30 +1,32 @@
-<ul class="nav nav-pills">
-  <li class="active"><%= link_to "Log In", new_user_session_path %></li>
-  <li><%= link_to "Sign Up", new_user_registration_path %></li>
-  <li><%= link_to "Reset Password", new_user_password_path %></li>
-</ul>
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class="form-horizontal">
-    <fieldset>
-      <legend>Log in</legend>
-      <div class="control-group">
-        <%= f.label :email %>
-        <div class="controls"><%= f.email_field :email %></div>
-      </div>
-
-      <div class="control-group">
-        <%= f.label :password %>
-        <div class="controls"><%= f.password_field :password %></div>
-      </div>
-
-      <% if devise_mapping.rememberable? -%>
+<div class="container">
+  <ul class="nav nav-pills">
+    <li class="active"><%= link_to "Log In", new_user_session_path %></li>
+    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <li><%= link_to "Reset Password", new_user_password_path %></li>
+  </ul>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <div class="form-horizontal">
+      <fieldset>
+        <legend>Log in</legend>
         <div class="control-group">
-          <%= f.label :remember_me %>
-          <div class="controls"><%= f.check_box :remember_me %></div>
+          <%= f.label :email %>
+          <div class="controls"><%= f.email_field :email %></div>
         </div>
-      <% end -%>
 
-      <div class="form-actions"><%= f.submit "Sign in", :class => "btn btn-primary" %></div>
-    </fieldset>
-  </div>
-<% end %>
+        <div class="control-group">
+          <%= f.label :password %>
+          <div class="controls"><%= f.password_field :password %></div>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="control-group">
+            <%= f.label :remember_me %>
+            <div class="controls"><%= f.check_box :remember_me %></div>
+          </div>
+        <% end -%>
+
+        <div class="form-actions"><%= f.submit "Sign in", :class => "btn btn-primary" %></div>
+      </fieldset>
+    </div>
+  <% end %>
+</div>

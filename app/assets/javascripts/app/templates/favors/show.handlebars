@@ -1,46 +1,55 @@
 {{#with favor}}
-  <div class="well favor-display">
-    <h2><span class="label label-info">{{points}} pts</span> {{title}}</h2> 
+  <div class="container">
+    <div class="well favor-display">
+      <div class="favor-meta">
+        <p class="label label-important">{{points}} pts</p>
+        <p class="time">{{timeago}}</p>
+      </div>
+      <div class="favor-main">
+        <h3>{{title}}</h3> 
+        <ul class="tags">
+          {{#each tags}}
+            {{view App.TagView tagBinding="this"}}
+          {{/each}} 
+        </ul>
+      </div>
 
-    <ul class="tags">
-      {{#each tags}}
-        {{view App.TagView tagBinding="this"}}
-      {{/each}} 
-    </ul>
+      {{#if isOwner}}
+        {{view App.AdminControlsView favorBinding="this"}}
+      {{/if}}
 
-    <p class="time">{{timeago}}</p>
+    </div> 
+  </div>
+  <div class="callout">
+    <div class="container">
+      <div class="row">
 
-    {{#if isOwner}}
-      {{view App.AdminControlsView favorBinding="this"}}
-    {{/if}}
+        <div class="span8">
+          <blockquote>{{{description_markdown}}}</blockquote>
 
-  </div> 
-  <div class="row">
+          {{#unless isOpen}}
+            {{#unless isTaken}}
+              <hr />
+              <div class="resolution">
+                <h3>Resolution:</h3><br />
+                {{#if isOwner}}
+                  {{#if isPending}}
+                    {{view App.FavorModerateView favorBinding="this"}}
+                  {{/if}}
+                {{/if}}
+                <blockquote>{{{resolution_markdown}}}</blockquote>
+              </div>
+            {{/unless}}
+          {{/unless}}
 
-    <div class="span8">
-      <blockquote>{{{description_markdown}}}</blockquote>
+        </div>
 
-      {{#unless isOpen}}
-        {{#unless isTaken}}
-          <hr />
-          <div class="resolution">
-            <h3>Resolution:</h3><br />
-            {{#if isOwner}}
-              {{#if isPending}}
-                {{view App.FavorModerateView favorBinding="this"}}
-              {{/if}}
-            {{/if}}
-            <blockquote>{{{resolution_markdown}}}</blockquote>
-          </div>
-        {{/unless}}
-      {{/unless}}
+        <div class="span4">
+          {{view App.FavorWorkView favorBinding="this"}}
+        </div>
 
+      </div>
     </div>
-
-    <div class="span4">
-      {{view App.FavorWorkView favorBinding="this"}}
-    </div>
-
   </div>
 
 {{/with}}

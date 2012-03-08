@@ -1,20 +1,21 @@
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <div class="form-horizontal">
-    <fieldset>
-      <legend>Change your password</legend>
-      <%= devise_error_messages! %>
+<div class="container">
+  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+    <div class="form-horizontal">
+      <fieldset>
+        <legend>Change your password</legend>
+        <%= devise_error_messages! %>
 
-      <div class="control-group"><%= f.label :password, "New password" %>
-        <div class="controls"><%= f.password_field :password %></div>
-      </div>
+        <div class="control-group"><%= f.label :password, "New password" %>
+          <div class="controls"><%= f.password_field :password %></div>
+        </div>
 
-      <div class="control-group"><%= f.label :password_confirmation, "Confirm new password" %>
-        <div class="controls"><%= f.password_field :password_confirmation %></div>
-      </div>
-      <%= f.hidden_field :reset_password_token %>
+        <div class="control-group"><%= f.label :password_confirmation, "Confirm new password" %>
+          <div class="controls"><%= f.password_field :password_confirmation %></div>
+        </div>
+        <%= f.hidden_field :reset_password_token %>
 
-      <div class="form-actions"><%= f.submit "Change my password", :class => "btn btn-primary" %></div>
-    </fieldset>
-  </div>
-<% end %>
-
+        <div class="form-actions"><%= f.submit "Change my password", :class => "btn btn-primary" %></div>
+      </fieldset>
+    </div>
+  <% end %>
+</div>

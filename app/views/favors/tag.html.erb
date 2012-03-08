@@ -1,19 +1,16 @@
-<div class="page-header">
-  <h1>Tagged with "<%= @tag %>"</h1>
+<div class="container">
+  <h1 class="title">Tagged with "<%= @tag %>"</h1>
 </div>
-<div class="row">
 
-  <div class="span8">
+<div class="callout">
+  <div class="container">
     <script type="text/x-handlebars">
       {{view App.SortFavorsView}}
       {{view App.ListFavorsView}}
     </script>
   </div>
-
-  <div class="span4">
-  </div>
-
 </div>
+
 <script type="text/javascript">
   $(function() {
     App.favorsController.loadAll(<%= @favors.to_json.html_safe %>);

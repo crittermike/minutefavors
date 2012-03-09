@@ -25,15 +25,25 @@ class FavorsController < ApplicationController
     end
   end
 
-  # GET /favors/tags/tagname
-  # GET /favors/tags/tagname.json
+  # GET /favors/tag/tagname
+  # GET /favors/tag/tagname.json
   def tag
     @favors = Favor.tagged_with(params[:tag], :order => @order).where('status' => 'open')
     @tag = params[:tag]
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # tag.html.erb
       format.json { render json: @favors }
+    end
+  end
+
+  # GET /favors/tags
+  def tags
+    @tags = Favor.tag_counts_on(:tags)
+
+    respond_to do |format|
+      format.html # tags.html.erb
+      format.json { render json: @tags }
     end
   end
 

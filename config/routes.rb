@@ -3,6 +3,7 @@ Favors::Application.routes.draw do
 
   resources :favors
 
+  match 'favors/tag/all' => 'favors#tags'
   match 'favors/tag/:tag' => 'favors#tag'
 
   # The priority is based upon order of creation:

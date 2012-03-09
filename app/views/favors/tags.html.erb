@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 class="title">All tags</h1>
+</div>
+<div class="callout">
+  <div class="container">
+    <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+      <a href="/favors/tag/<%= tag.name %>" class="<%= css_class %>"><%= tag.name %></a>
+    <% end %>
+  </div>
+</div>

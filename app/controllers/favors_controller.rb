@@ -14,6 +14,10 @@ class FavorsController < ApplicationController
     end
   end
 
+  # GET /how-it-works
+  def help
+  end
+
   # GET /favors/1
   # GET /favors/1.json
   def show

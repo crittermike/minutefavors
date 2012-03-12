@@ -5,6 +5,7 @@ Favors::Application.routes.draw do
 
   match 'favors/tag/all' => 'favors#tags'
   match 'favors/tag/:tag' => 'favors#tag'
+  match 'how-it-works' => 'favors#help'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

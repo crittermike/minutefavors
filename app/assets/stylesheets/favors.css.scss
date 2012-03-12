@@ -19,8 +19,12 @@ body {
   background: $bgdark;
   color: #ddd;
   font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  font-size: 15px;
 }
 
+p {
+  font-size: 15px;
+}
 p, label, input, button, select, textarea {
   font-family: 'PT Sans', Helvetica, Arial, sans-serif;
 }
@@ -86,6 +90,17 @@ a {
 .page-header {
   border-bottom: 1px solid #444;
 }
+.logo {
+  color: $teal;
+  text-transform: lowercase;
+  font-family: 'Arvo', Georgia, serif;
+  span {
+    color: $coral;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 
 
@@ -94,10 +109,6 @@ a {
   background: $bglight;
   border-bottom: 1px solid #444;
   padding: 6px;
-
-  .brand {
-    font-size: 20px;
-  }
 
   .nav-points a {
     background: $coral;
@@ -116,18 +127,11 @@ a {
     font-size: 15px;
   }
 
-  .logo, .brand {
+  .brand {
+    font-size: 20px;
     color: $teal;
-    text-transform: lowercase;
-    font-family: 'Arvo', Georgia, serif;
     position: relative;
-    top: 3px;
-    span {
-      color: $coral;
-    }
-    &:hover {
-      text-decoration: none;
-    }
+    top: 1px;
   }
 }
 
@@ -295,7 +299,7 @@ blockquote p {
 }
 .btn-primary {
   color: black;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
   background-color: #4ecdc4;
   background-image: -moz-linear-gradient(top, #4ecdc4, #47bcb2);
   background-image: -ms-linear-gradient(top, #4ecdc4, #47bcb2);
@@ -317,7 +321,7 @@ blockquote p {
 .btn-primary.disabled,
 .btn-primary[disabled] {
   background-color: #47bcb2;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
   color: black;
 }
 .btn-primary:active, .btn-primary.active {
@@ -349,7 +353,7 @@ blockquote p {
 }
 .btn-success {
   color: black;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
   background-color: #c7f464;
   background-image: -moz-linear-gradient(top, #c7f464, #b3db57);
   background-image: -ms-linear-gradient(top, #c7f464, #b3db57);
@@ -507,5 +511,10 @@ ul.tags {
 @media (max-width: 480px) {
   #sort-tabs {
     float: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 980px) {
+  .hidesmall {
+    display: none;
   }
 }

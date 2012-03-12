@@ -1,11 +1,11 @@
 <div class="container">
   <% if user_signed_in? %>
-    <h1 class="title">View open favor requests</h1>
+    <h1 class="title">Open favor requests</h1>
   <% else %>
     <div class="hero-unit">
       <h1>Help and be helped with <span class="logo">Minute <span>Favors</span></span></h1>
-      <p>Minute Favors is an online community of people doing quick, online favors for each other. Ask for something quick and easy that can be done using a computer, and you shall receive.</p>
-      <p><a href="favors/new" class="btn btn-primary btn-large">Request a favor »</a></p>
+      <p>Minute Favors is an online community of people doing quick, online favors for each other. Need someone to convert a file to a different format? Or do you have some time to burn and want to help someone out? Get started!</p>
+      <p><%= link_to "Sign up now »", new_user_registration_path, :class => "btn btn-primary btn-large" %></p>
     </div> 
   <% end %>
 </div>

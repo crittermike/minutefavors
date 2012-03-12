@@ -103,7 +103,7 @@ a {
     background: $coral;
     color: black !important;
     padding: 5px !important;
-    margin-top: 7px;
+    margin-top: 5px;
     margin-left: 10px;
     @include radius(5px);
     &:hover {
@@ -184,6 +184,7 @@ a {
   .favor-main {
     float: left;
     margin-left: 10px;
+    overflow: hidden;
   }
 
   p.time {
@@ -472,4 +473,39 @@ ul.tags {
       border-color:transparent $coral transparent transparent;
     }
   } 
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  h1.title {
+    font-size: 30px;
+  }
+  .favor-display {
+    .favor-meta {
+      width: 100%;
+      margin-bottom: 10px;
+      .label {
+        width: 100px;
+        float: left;
+        margin-bottom: 0;
+      }
+      .time {
+        margin-top: 7px;
+        float: left;
+        margin-left: 15px;
+      }
+    }
+  }
+  .favor-single .btn-group {
+    position: static;
+    clear: both;
+    padding-top: 20px;
+  }
+}
+@media (max-width: 480px) {
+  #sort-tabs {
+    float: none;
+  }
 }

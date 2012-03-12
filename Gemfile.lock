@@ -64,8 +64,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.0.4)
-    mysql2 (0.3.11)
     orm_adapter (0.0.6)
+    pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.1)
@@ -123,7 +123,7 @@ DEPENDENCIES
   devise
   ember-rails
   jquery-rails
-  mysql2
+  pg
   rails (= 3.2.1)
   redcarpet
   sass-rails (~> 3.2.3)

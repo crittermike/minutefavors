@@ -20,7 +20,7 @@
 //= require ./vendor/bootstrap-dropdown
 //= require ./vendor/bootstrap-collapse
 //= require ./vendor/date-utils
-//= require ./vendor/textext
+//= require ./vendor/tagsuggest
 //= require app/app
 //= require_tree ./lib
 //= require_tree ./app/models

@@ -53,3 +53,10 @@
     </fieldset>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  var allTags = [<%= Favor.tag_counts.map { |tag| "'" + tag.name + "'" } .join ',' %>]
+  $('#favor_tag_list').tagSuggest({
+    tags: allTags
+  }); 
+</script>

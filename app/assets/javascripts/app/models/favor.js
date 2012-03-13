@@ -63,7 +63,11 @@ App.Favor = Ember.Resource.extend({
       this.set('accepted_at', ISODateString(new Date()));
 
       this.saveResource().fail(function(e) {
-        alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
+        if (e.status == 409) {
+          alert("Uh oh, looks like someone else already accepted this favor since you've opened this page. Reload this page to see its progress.");
+        } else {
+          alert("Oops, something went wrong. Reload the page and try again, and if that doesn't work, contact us.");
+        }
       });
     }
   },

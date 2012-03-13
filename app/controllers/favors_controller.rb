@@ -91,19 +91,25 @@ class FavorsController < ApplicationController
   # PUT /favors/1.json
   def update
     @favor = Favor.find(params[:id])
-    respond_to do |format|
-      if @favor.update_attributes(params[:favor])
-        if @favor.status == 'closed'
-          # If the owner just accepted this favor, credit the helper with the points.
-          @user = User.find(@favor.helper_id)
-          @user.points = @user.points + @favor.earned
-          @user.save
+
+    if @favor.status == 'taken' && params[:favor]['status'] == 'taken' && @favor.helper_id != params[:favor]['helper_id']
+      render :nothing => true , :status => 409
+
+    else
+      respond_to do |format|
+        if @favor.update_attributes(params[:favor])
+          if @favor.status == 'closed'
+            # If the owner just accepted this favor, credit the helper with the points.
+            @user = User.find(@favor.helper_id)
+            @user.points = @user.points + @favor.earned
+            @user.save
+          end
+          format.html { redirect_to @favor, notice: 'Favor was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @favor.errors, status: :unprocessable_entity }
         end
-        format.html { redirect_to @favor, notice: 'Favor was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @favor.errors, status: :unprocessable_entity }
       end
     end
   end

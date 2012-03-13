@@ -487,6 +487,9 @@ ul.tags {
     font-size: 30px;
   }
   .favor-display {
+    .favor-main {
+      margin-bottom: 20px;
+    }
     .favor-meta {
       width: 100%;
       margin-bottom: 10px;
@@ -505,7 +508,6 @@ ul.tags {
   .favor-single .btn-group {
     position: static;
     clear: both;
-    padding-top: 20px;
   }
 }
 @media (max-width: 480px) {

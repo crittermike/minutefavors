@@ -53,6 +53,14 @@ App.Favor = Ember.Resource.extend({
     return this.get('user_id') == App.get('user_id');
   }.property(),
 
+  // Observers
+  outOfTime: function() {
+    if (this.get('isTaken') && this.get('isHelper') && this.get('pointsleft') <= 0) {
+      this.rejectWork();
+      alert("You ran out of time so this favor has been re-opened for someone else to do it. Sorry about that!")
+    }
+  }.observes('pointsleft'),
+
 
   startWork: function() {
     if (this.get('helper_id') == App.get('user_id')) {

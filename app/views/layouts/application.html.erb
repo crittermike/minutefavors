@@ -3,12 +3,17 @@
 <head>
   <title><%= @title %> | Minute Favors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <meta name="description" content="Minute Favors is a community for trading quick online favors with other people to earn points. If you need someone to do something for you on their computer that only takes a minute or two, try it out. Think of it like a Stack Overflow for favors, or A Mechanical Turk but with smaller favors and a community." />
+  <meta name="keywords" content="favors, minutes, help, computer help, website help, karma, tech help, tech favors, computer favors, mechanical turk, mturk" />
+
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
   <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
   <script type="text/javascript">
 
     var _gaq = _gaq || [];

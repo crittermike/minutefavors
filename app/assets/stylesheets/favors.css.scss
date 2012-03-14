@@ -417,6 +417,23 @@ blockquote p {
 
 
 
+/* FOOTER */
+p.footer {
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+  margin-top: 20px;
+  a {
+    color: #888;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+
+
 
 /* TAGS */
 div.tagMatches {

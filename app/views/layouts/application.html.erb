@@ -64,6 +64,17 @@
 
   <%= yield %>
 
+  <div class="container">
+    <% time = Time.new %>
+    <p class="footer">
+      Copyright &copy; <%= time.year %> Minute Favors | 
+      <a href="mailto:hello@minutefavors.com" title="Email us">hello@minutefavors.com</a> | 
+      <a href="http://www.facebook.com/pages/Minute-Favors/302136306509793">Facebook</a> | 
+      <a href="http://twitter.com/minutefavors">Twitter</a> | 
+      <a href="http://www.facebook.com/pages/Minute-Favors/302136306509793">Google+</a>
+    </p>
+  </div>
+
 <script type="text/javascript">
   $(function() {
     <% if user_signed_in? %>

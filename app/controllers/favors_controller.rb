@@ -6,7 +6,7 @@ class FavorsController < ApplicationController
   # GET /favors
   # GET /favors.json
   def index
-    @favors = Favor.order(@order).where('status' => 'open')
+    @favors = Favor.order(@order)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -32,7 +32,7 @@ class FavorsController < ApplicationController
   # GET /favors/tag/tagname
   # GET /favors/tag/tagname.json
   def tag
-    @favors = Favor.tagged_with(params[:tag], :order => @order).where('status' => 'open')
+    @favors = Favor.tagged_with(params[:tag], :order => @order)
     @tag = params[:tag]
 
     respond_to do |format|

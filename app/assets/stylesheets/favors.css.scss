@@ -183,6 +183,10 @@ a {
 
   h3{
     font-size: 25px;
+    &.closed a {
+      color: #888;
+      text-decoration: line-through;
+    }
   }
 
   .favor-main {

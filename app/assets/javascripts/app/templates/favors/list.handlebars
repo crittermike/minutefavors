@@ -6,7 +6,7 @@
         <p class="time">{{timeago}}</p>
       </div>
       <div class="favor-main">
-        <h3><a {{bindAttr href="url"}} title="Check out this favor">{{title}}</a></h3>      
+        <h3 {{bindAttr class="status"}}><a {{bindAttr href="url"}} title="Check out this favor">{{title}}</a></h3>      
         <ul class="tags">
           {{#each tags}}
             {{view App.TagView tagBinding="this"}}

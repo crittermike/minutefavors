@@ -1,3 +1,7 @@
+<div class="btn-group status-filter" data-toggle="buttons-radio">
+  {{#view Ember.Button target="App.favorsController" class="btn btn-primary active" action="filterAll"}}All{{/view}}
+  {{#view Ember.Button target="App.favorsController" class="btn btn-primary" action="filterOpen"}}Open{{/view}}
+</div>
 <ul class="nav nav-pills" id="sort-tabs">
   <li class="active">
     {{#view Ember.Button tagName="a" target="App.favorsController" attributeBindings="data-toggle" href="#newest" data-toggle="pill" action="sortNewest"}}Newest{{/view}}

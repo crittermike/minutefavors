@@ -149,9 +149,15 @@ a {
 #sort-tabs {
   float: right;
 }
+.status-filter {
+  width: 100px;
+  position: relative;
+  top: 32px;
+}
 
 .sort-headers {
   margin-bottom: 15px;
+  margin-left: 100px;
 }
 
 #favors-list {
@@ -167,6 +173,9 @@ a {
     p {
       font-size: 18px;
     }
+  }
+  div.pending, div.closed, div.taken {
+    display: none;
   }
 }
 

@@ -1,18 +1,20 @@
 <ul id="favors-list">
   {{#each favors}}
-    <li class="favor-display favor-multiple">
-      <div class="favor-meta">
-        <p class="label label-important">{{points}} pts</p>
-        <p class="time">{{timeago}}</p>
-      </div>
-      <div class="favor-main">
-        <h3 {{bindAttr class="status"}}><a {{bindAttr href="url"}} title="Check out this favor">{{title}}</a></h3>      
-        <ul class="tags">
-          {{#each tags}}
-            {{view App.TagView tagBinding="this"}}
-          {{/each}} 
-        </ul>
-      </div>
-    </li>
+    {{#if isVisible}}
+      <li class="favor-display favor-multiple">
+        <div class="favor-meta">
+          <p class="label label-important">{{points}} pts</p>
+          <p class="time">{{timeago}}</p>
+        </div>
+        <div class="favor-main">
+          <h3 {{bindAttr class="status"}}><a {{bindAttr href="url"}} title="Check out this favor">{{title}}</a></h3>      
+          <ul class="tags">
+            {{#each tags}}
+              {{view App.TagView tagBinding="this"}}
+            {{/each}} 
+          </ul>
+        </div>
+      </li>
+    {{/if}}
   {{/each}}
 </ul>

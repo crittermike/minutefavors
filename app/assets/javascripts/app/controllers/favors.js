@@ -1,4 +1,5 @@
 App.favorsController = Ember.ResourceController.create({
+  showAll: true,
   resourceType: App.Favor,
 
   sortNewest: function() {
@@ -12,5 +13,12 @@ App.favorsController = Ember.ResourceController.create({
   sortPoints: function() {
     this.resourceUrl = window.location.pathname + '?sort=points';
     this.findAll();
+  },
+
+  filterOpen: function() {
+    this.set('showAll', false);
+  },
+  filterAll: function() {
+    this.set('showAll', true);
   }
 });

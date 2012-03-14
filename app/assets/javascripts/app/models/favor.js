@@ -52,10 +52,13 @@ App.Favor = Ember.Resource.extend({
   isOwner: function() {
     return this.get('user_id') == App.get('user_id');
   }.property(),
+  isVisible: function() {
+    return App.favorsController.get('showAll') || this.get('status') == 'open';
+  }.property('App.favorsController.showAll'),
 
   // Observers
   outOfTime: function() {
-    if (this.get('isTaken') && this.get('isHelper') && this.get('pointsleft') <= 0) {
+    if (this.get('isTaken') && this.get('isHelper') && this.get('pointsleft') == 0) {
       this.rejectWork();
       alert("You ran out of time so this favor has been re-opened for someone else to do it. Sorry about that!")
     }

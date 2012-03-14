@@ -19,6 +19,7 @@
 //= require ./vendor/bootstrap-modal
 //= require ./vendor/bootstrap-dropdown
 //= require ./vendor/bootstrap-collapse
+//= require ./vendor/bootstrap-button
 //= require ./vendor/date-utils
 //= require ./vendor/tagsuggest
 //= require app/app
